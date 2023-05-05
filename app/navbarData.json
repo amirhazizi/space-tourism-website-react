@@ -1,0 +1,22 @@
+[
+  {
+    "number": "00",
+    "content": "HOME",
+    "link": "/"
+  },
+  {
+    "number": "01",
+    "content": "DESTINATION",
+    "link": "/destination"
+  },
+  {
+    "number": "02",
+    "content": "CREW",
+    "link": "/crew"
+  },
+  {
+    "number": "03",
+    "content": "TECHNOLOGY",
+    "link": "/technology"
+  }
+]
