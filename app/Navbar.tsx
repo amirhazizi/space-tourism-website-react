@@ -11,7 +11,7 @@ type NavbarProps = {
 }
 
 export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
-  //   const router = useRouter()
+  const router = useRouter()
   return (
     <nav>
       <div className='flex p-5 px-6  justify-between'>
