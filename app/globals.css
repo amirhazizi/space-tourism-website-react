@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  scroll-behavior: smooth;
+}
+
+/* custom scroll bar */
+::-webkit-scrollbar {
+  background: rgb(23, 23, 23);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+  border-radius: 50rem;
+  border: 3px solid rgb(23, 23, 23);
+}
+
 /* global */
 main>div {
   width: min(90vw, 1000px)
@@ -10,6 +25,7 @@ main>div {
 aside {
   backdrop-filter: blur(5px);
   height: 100%;
+  z-index: 5;
 }
 
 /* home page */

@@ -16,7 +16,9 @@ export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
     <nav className='absolute top-0 left-0 w-full'>
       <div className='flex p-5 px-6  justify-between'>
         <div className='w-1/2'>
-          <Image src={logo} alt={logo} />
+          <Link href='/'>
+            <Image src={logo} alt={logo} />
+          </Link>
         </div>
         <button onClick={() => setSidebar(!sidebar)}>
           <Image src={hamburger} alt={hamburger.icon} />

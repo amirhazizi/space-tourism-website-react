@@ -12,7 +12,7 @@ type SidebarProps = {
 export default function Sidebar({ setSidebar, sidebar }: SidebarProps) {
   return (
     <aside
-      className={`w-2/3 absolute top-1/2 right-0 -translate-y-1/2 transition-all overflow-x-hidden ${
+      className={`w-2/3 h-full absolute top-1/2 right-0 -translate-y-1/2 transition-all overflow-x-hidden ${
         sidebar ? "visible" : "invisible"
       }`}
     >

@@ -37,9 +37,10 @@ export default function Destination() {
         <div className='space-y-8  uppercase'>
           <img className='w-48 mx-auto' src={images.png} alt={name} />
           <div className='flex gap-x-4 justify-center'>
-            {destinationNames?.map((des) => {
+            {destinationNames?.map((des, index) => {
               return (
                 <button
+                  key={index}
                   onClick={() => setUserDestination(des)}
                   className={`destination-btn  tracking-widest  relative ${
                     userdestination === des
