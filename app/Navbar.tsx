@@ -13,7 +13,7 @@ type NavbarProps = {
 export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
   const router = useRouter()
   return (
-    <nav>
+    <nav className='absolute top-0 left-0 w-full'>
       <div className='flex p-5 px-6  justify-between'>
         <div className='w-1/2'>
           <Image src={logo} alt={logo} />
@@ -21,7 +21,7 @@ export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
         <button onClick={() => setSidebar(!sidebar)}>
           <Image src={hamburger} alt={hamburger.icon} />
         </button>
-        <div className=' hidden md:flex items-center gap-x-3 w-1/2'>
+        <div className='hidden md:flex items-center gap-x-3 w-1/2'>
           {navContent.map((item) => {
             return (
               <Link key={item.number} href={item.link}>

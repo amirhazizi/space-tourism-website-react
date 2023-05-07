@@ -8,7 +8,7 @@ const bellefair = Bellefair({
   variable: "--font-bellefair",
 })
 const barlowCondensed = Barlow_Condensed({
-  weight: "400",
+  weight: ["300", "400"],
   subsets: ["latin"],
   variable: "--font-barlow-condensed",
 })

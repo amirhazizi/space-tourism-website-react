@@ -1,6 +1,3 @@
-export default function Technology (){
-
-    return <p>
-        Technology
-    </p>
+export default function Technology() {
+  return <p>Technology</p>
 }
