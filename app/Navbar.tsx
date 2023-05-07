@@ -13,7 +13,7 @@ type NavbarProps = {
 export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
   const router = useRouter()
   return (
-    <nav className='absolute top-0 left-0 w-full'>
+    <nav className='absolute top-0 left-0 w-full z-10'>
       <div className='flex p-5 px-6  justify-between'>
         <div className='w-1/2'>
           <Link href='/'>

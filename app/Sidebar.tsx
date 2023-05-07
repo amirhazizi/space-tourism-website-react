@@ -12,13 +12,13 @@ type SidebarProps = {
 export default function Sidebar({ setSidebar, sidebar }: SidebarProps) {
   return (
     <aside
-      className={`w-2/3 h-full absolute top-1/2 right-0 -translate-y-1/2 transition-all overflow-x-hidden ${
+      className={`w-3/5 absolute top-1/2 right-0 -translate-y-1/2 transition-all overflow-x-hidden z-50 ${
         sidebar ? "visible" : "invisible"
       }`}
     >
       <div
-        className={`p-10 px-7 space-y-24 relative transition-transform  font-barlowCondensed ${
-          sidebar ? "translate-x-0" : " translate-x-full"
+        className={`p-10 px-7 space-y-24 relative transition-all  font-barlowCondensed ${
+          sidebar ? "translate-x-0 opacity-100" : " translate-x-full opacity-0"
         }`}
       >
         <div className='flex justify-end'>

@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import data from "../data.json"
 
 const { destinations } = data
@@ -56,7 +55,7 @@ export default function Destination() {
         </div>
         <div className='space-y-4 border-opacity-50 border-b border-b-clPrimary_2 pb-7'>
           <h1 className='text-6xl font-bellefair  uppercase'>{name}</h1>
-          <p className='text-clPrimary_2 text-lg max-w-xs mx-auto '>
+          <p className='text-clPrimary_2 text-lg px-5 leading-7 mx-auto '>
             {description}
           </p>
         </div>
