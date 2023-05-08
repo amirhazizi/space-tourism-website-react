@@ -5,7 +5,7 @@ export default function Home() {
     <main className='home-main min-h-screen grid place-items-center  '>
       <div className='space-y-16 pt-28 pb-10'>
         <div className='text-center space-y-4 font-barlowCondensed mx-auto text-clPrimary_2'>
-          <h1 className='home-header-text uppercase font-light text-clPrimary_3 '>
+          <h1 className='home-header-text uppercase font-light text-clPrimary_3'>
             so, you want to travel to <br />
             <span className='font-bellefair '>space</span>
           </h1>
@@ -16,7 +16,7 @@ export default function Home() {
             world experience!
           </p>
         </div>
-        <button className='home-buttom uppercase bg-clPrimary_3 text-xl rounded-full mx-auto block font-bellefair'>
+        <button className='home-buttom uppercase bg-clPrimary_3 text-xl rounded-full mx-auto block font-bellefair md:text-4xl'>
           <Link href={`/destination`}>explore</Link>
         </button>
       </div>

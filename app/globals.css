@@ -19,13 +19,30 @@ body {
 
 /* global */
 main>div {
-  /* width: min(90vw, 1000px) */
+  width: min(90vw, 1000px)
 }
 
 aside {
   backdrop-filter: blur(35px);
   height: 100%;
   z-index: 5;
+}
+
+.nav-btn::after {
+  content: "";
+  width: 0;
+  height: .1rem;
+  border-radius: 500rem;
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  transform: translate(-50%, 0);
+  transition: all 250ms ease-in-out;
+}
+
+.actived-nav::after {
+  background: white;
+  width: 100%;
 }
 
 /* home page */
@@ -127,4 +144,30 @@ aside {
 .technology-btn {
   width: 3rem;
   height: 3rem;
+}
+
+
+/* tablet */
+@media (min-width:768px) {
+  .home-header-text {
+    font-size: 1.2rem;
+
+  }
+
+  .home-header-text span {
+    font-size: 9rem;
+
+  }
+
+  .home-text {
+    max-width: 27rem;
+    font-size: 1.3rem;
+    line-height: 1.5;
+
+  }
+
+  .home-buttom {
+    width: 14rem;
+    height: 14rem;
+  }
 }
