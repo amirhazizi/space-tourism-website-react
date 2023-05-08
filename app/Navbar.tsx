@@ -17,13 +17,13 @@ export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
 
   return (
     <nav className='absolute top-0 left-0 w-full z-10'>
-      <div className='flex p-5 px-6  justify-between'>
-        <div className='w-1/2'>
+      <div className='flex p-5 px-6 justify-between md:p-0'>
+        <div className='w-1/2 md:p-8 md:py-6'>
           <Link href='/'>
             <Image src={logo} alt={logo} />
           </Link>
         </div>
-        <div className='hidden md:flex items-center text-clPrimary_3 gap-x-5 w-1/2'>
+        <div className='nav-links md:pl-10 hidden md:flex items-center text-clPrimary_3 gap-x-10 w-2/3 md:text-xs'>
           {navContent.map((item) => {
             const isActive = pathname === item.link ? true : false
             console.log(pathname)

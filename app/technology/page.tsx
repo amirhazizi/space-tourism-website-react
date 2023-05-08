@@ -24,7 +24,7 @@ export default function Technology() {
   const { name, description, images } = technology
   return (
     <main className='technology-main min-h-screen grid place-items-center'>
-      <div className='space-y-10 pt-20 pb-10 text-clPrimary_3 text-center font-barlowCondensed overflow-hidden '>
+      <div className='space-y-10 pt-20 pb-10  md:pt-32 text-clPrimary_3 text-center font-barlowCondensed overflow-hidden '>
         <h1 className='text-xl tracking-widest  uppercase'>
           <span className='text-gray-700 px-2'>03</span>Space Launch 101
         </h1>

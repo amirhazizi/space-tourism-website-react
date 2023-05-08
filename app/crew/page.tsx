@@ -23,7 +23,7 @@ export default function Crew() {
   const { name, role, bio, images } = person
   return (
     <main className='crew-main min-h-screen grid place-items-center'>
-      <div className='space-y-10 pt-20 pb-10 text-clPrimary_3 text-center  font-barlowCondensed '>
+      <div className='space-y-10 pt-20 pb-10  md:pt-32 text-clPrimary_3 text-center  font-barlowCondensed '>
         <h1 className='text-xl tracking-widest  uppercase'>
           <span className='text-gray-700 px-2'>02</span>Meet Your Crew
         </h1>

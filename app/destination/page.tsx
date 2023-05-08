@@ -29,13 +29,13 @@ export default function Destination() {
 
   return (
     <main className='destination-main min-h-screen grid place-items-center'>
-      <div className='space-y-10 pt-28 pb-10 text-clPrimary_3 text-center  font-barlowCondensed '>
+      <div className='space-y-10 pt-28 pb-10 md:pt-32 text-clPrimary_3 text-center font-barlowCondensed'>
         <h1 className=' text-xl tracking-widest  uppercase'>
           <span className='text-gray-700 px-2'>01</span>pick your destination
         </h1>
         <div className='space-y-8  uppercase'>
-          <img className='w-48 mx-auto' src={images.png} alt={name} />
-          <div className='flex gap-x-4 justify-center'>
+          <img className='w-48 mx-auto md:w-72' src={images.png} alt={name} />
+          <div className='flex gap-x-4 justify-center md:gap-x-6'>
             {destinationNames?.map((des, index) => {
               return (
                 <button
@@ -53,19 +53,23 @@ export default function Destination() {
             })}
           </div>
         </div>
-        <div className='space-y-4 border-opacity-50 border-b border-b-clPrimary_2 pb-7'>
-          <h1 className='text-6xl font-bellefair  uppercase'>{name}</h1>
-          <p className='text-clPrimary_2 text-lg px-5 leading-7 mx-auto '>
+        <div className='space-y-4 border-opacity-50 border-b border-b-clPrimary_2 pb-7 md:pb-14'>
+          <h1 className='text-6xl font-bellefair uppercase md:text-7xl'>
+            {name}
+          </h1>
+          <p className='text-clPrimary_2 text-lg px-5 leading-7 mx-auto md:max-w-xl md:text-xl md:leading-8 '>
             {description}
           </p>
         </div>
-        <div className='uppercase text-4xl space-y-2'>
-          <p className='text-clPrimary_2 text-lg'>avg. distance</p>
-          <h2 className='font-bellefair'>{distance} </h2>
-        </div>
-        <div className='uppercase text-4xl space-y-2'>
-          <p className='text-clPrimary_2 text-lg'>est. travel time</p>
-          <h2 className='font-bellefair'>{travel}</h2>
+        <div className='space-y-10 md:flex md:space-y-0 md:gap-x-20 md:justify-center'>
+          <div className='uppercase text-4xl space-y-2 md:text-2xl'>
+            <p className='text-clPrimary_2 text-lg'>avg. distance</p>
+            <h2 className='font-bellefair'>{distance} </h2>
+          </div>
+          <div className='uppercase text-4xl space-y-2 md:text-2xl'>
+            <p className='text-clPrimary_2 text-lg'>est. travel time</p>
+            <h2 className='font-bellefair'>{travel}</h2>
+          </div>
         </div>
       </div>
     </main>
