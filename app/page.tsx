@@ -3,8 +3,8 @@ import Link from "next/link"
 export default function Home() {
   return (
     <main className='home-main min-h-screen grid place-items-center'>
-      <div className='space-y-16 pt-28 pb-10 md:pt-36'>
-        <div className='text-center space-y-4 font-barlowCondensed mx-auto text-clPrimary_2'>
+      <div className='space-y-16 pt-28 pb-10 md:pt-36 lg:flex lg:pt-60 lg:justify-between'>
+        <div className='text-center space-y-4 font-barlowCondensed mx-auto text-clPrimary_2 lg:text-left lg:mx-0'>
           <h1 className='home-header-text uppercase font-light text-clPrimary_3'>
             so, you want to travel to <br />
             <span className='font-bellefair '>space</span>
@@ -16,7 +16,7 @@ export default function Home() {
             world experience!
           </p>
         </div>
-        <button className='home-buttom uppercase bg-clPrimary_3 text-xl rounded-full mx-auto block font-bellefair md:text-4xl'>
+        <button className='home-buttom uppercase bg-clPrimary_3 text-xl rounded-full mx-auto block font-bellefair md:text-4xl lg:self-center lg:mx-0'>
           <Link href={`/destination`}>explore</Link>
         </button>
       </div>

@@ -19,7 +19,7 @@ body {
 
 /* global */
 main>div {
-  width: min(90vw, 1000px)
+  width: min(90vw, 1150px)
 }
 
 aside {
@@ -39,9 +39,13 @@ aside {
   border-radius: 500rem;
   position: absolute;
   left: 50%;
-  bottom: -39px;
+  bottom: -36px;
   transform: translate(-50%, 0);
   transition: all 250ms ease-in-out;
+}
+
+.nav-line {
+  width: 37%;
 }
 
 .actived-nav::after {
@@ -79,6 +83,10 @@ aside {
 /* destination */
 .destination-main {
   background: url('../public/assets/destination/background-destination-mobile.jpg') center/cover no-repeat fixed;
+}
+
+.planet-img {
+  width: 12rem;
 }
 
 .destination-btn {
@@ -142,7 +150,7 @@ aside {
 
 .technology-main>div {
   z-index: 2;
-  width: min(100%, 1000px);
+  width: 100%;
 }
 
 .technology-btn {
@@ -191,6 +199,10 @@ aside {
     height: 14rem;
   }
 
+  .planet-img {
+    width: 18rem;
+  }
+
   .destination-btn {
     font-size: 1.2rem;
   }
@@ -198,5 +210,73 @@ aside {
   .person-img-container {
     width: 450px;
     height: 450px;
+  }
+}
+
+@media (min-width:1024px) {
+  .home-main {
+    background-image: url('../public/assets/home/background-home-desktop.jpg');
+  }
+
+  .destination-main {
+    background-image: url('../public/assets/destination/background-destination-desktop.jpg');
+  }
+
+  .technology-main {
+    background-image: url('../public/assets/technology/background-technology-desktop.jpg');
+  }
+
+  .crew-main {
+    background-image: url('../public/assets/crew/background-crew-desktop.jpg');
+  }
+
+  .nav-btn::after {
+    bottom: -28px;
+    transform: translate(-43%, 0%);
+  }
+
+
+  .home-header-text {
+    font-size: 1.5rem;
+  }
+
+  .home-header-text span {
+    font-size: 9.5rem;
+
+  }
+
+  .home-text {
+    max-width: 30rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+
+  }
+
+  .home-buttom {
+    width: 17rem;
+    height: 17rem;
+  }
+
+  .planet-img {
+    width: 25rem;
+  }
+
+  .technology-btn {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+
+  .person-img-container {
+    width: 65%;
+    height: calc(100vh - 169px);
+  }
+}
+
+@media (min-width:1440px) {
+  .technology-btn {
+    width: 5rem;
+    height: 5rem;
+
   }
 }
