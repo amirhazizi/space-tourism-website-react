@@ -26,8 +26,6 @@ export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
         <div className='nav-links md:pl-10 hidden md:flex items-center text-clPrimary_3 gap-x-10 w-2/3 md:text-xs'>
           {navContent.map((item) => {
             const isActive = pathname === item.link ? true : false
-            console.log(pathname)
-
             return (
               <Link
                 className={`text-clPrimary_3 nav-btn relative ${

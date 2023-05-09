@@ -2,7 +2,7 @@
 import Link from "next/link"
 export default function Home() {
   return (
-    <main className='home-main min-h-screen grid place-items-center  '>
+    <main className='home-main min-h-screen grid place-items-center'>
       <div className='space-y-16 pt-28 pb-10 md:pt-36'>
         <div className='text-center space-y-4 font-barlowCondensed mx-auto text-clPrimary_2'>
           <h1 className='home-header-text uppercase font-light text-clPrimary_3'>

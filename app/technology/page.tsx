@@ -24,7 +24,7 @@ export default function Technology() {
   const { name, description, images } = technology
   return (
     <main className='technology-main min-h-screen grid place-items-center'>
-      <div className='space-y-10 pt-20 pb-10  md:pt-32 text-clPrimary_3 text-center font-barlowCondensed overflow-hidden '>
+      <div className='space-y-10 pt-20 pb-10 md:pt-32 text-clPrimary_3 text-center font-barlowCondensed overflow-hidden'>
         <h1 className='text-xl tracking-widest  uppercase'>
           <span className='text-gray-700 px-2'>03</span>Space Launch 101
         </h1>
@@ -44,12 +44,16 @@ export default function Technology() {
             )
           })}
         </div>
-        <div className='space-y-5 pb-7 max-w-sm mx-auto'>
-          <div className='space-y-1'>
-            <p className='uppercase tracking-widest'>THE TERMINOLOGY…</p>
-            <h1 className='text-2xl font-bellefair  uppercase'>{name}</h1>
+        <div className='space-y-5 pb-7 max-w-sm mx-auto md:max-w-lg'>
+          <div className='space-y-2 md:space-y-4'>
+            <p className='uppercase tracking-widest text-clPrimary_2'>
+              THE TERMINOLOGY…
+            </p>
+            <h1 className='text-2xl font-bellefair uppercase md:text-4xl'>
+              {name}
+            </h1>
           </div>
-          <p className='text-clPrimary_2 text-lg px-5 leading-7 mx-auto'>
+          <p className='text-clPrimary_2 text-lg px-5 leading-7 md:text-xl md:px-10 md:leading-8'>
             {description}
           </p>
         </div>

@@ -194,4 +194,9 @@ aside {
   .destination-btn {
     font-size: 1.2rem;
   }
+
+  .person-img-container {
+    width: 450px;
+    height: 450px;
+  }
 }
