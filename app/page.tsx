@@ -28,7 +28,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, delay: 0.4, ease: "easeIn" }}
+            transition={{ duration: 0.3, delay: 0.2, ease: "easeIn" }}
             className='home-buttom uppercase bg-clPrimary_3 text-xl rounded-full mx-auto block font-bellefair md:text-4xl lg:self-center lg:mx-0'
           >
             <Link href={`/destination`}>explore</Link>

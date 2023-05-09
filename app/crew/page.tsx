@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import data from "../data.json"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 
 const { crew: allCrew } = data
 const initialPerson = allCrew[0]
@@ -39,13 +40,21 @@ export default function Crew() {
               </h1>
               <div className='space-y-10 text-center lg:text-left'>
                 <div className='border-opacity-30 border-b border-b-clPrimary_2 md:border-none'>
-                  <div className='person-img-container mx-auto md:hidden'>
-                    <img
+                  <motion.div
+                    initial={{ x: -10, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 100 }}
+                    transition={{ duration: 0.4, delay: 0.1, ease: "easeIn" }}
+                    className='person-img-container mx-auto md:hidden'
+                  >
+                    <Image
                       className='w-full h-full object-contain'
-                      src={images.png}
+                      src={`/${images.png}`}
                       alt={name}
+                      width={500}
+                      height={700}
                     />
-                  </div>
+                  </motion.div>
                 </div>
                 <div className='flex gap-x-5 justify-center md:hidden'>
                   {crewNames?.map((_, personIndex) => {
@@ -74,7 +83,7 @@ export default function Crew() {
                   <p
                     className={`text-clPrimary_2 text-lg px-5 leading-7 md:leading-8 md:mx-auto lg:px-0 lg:mx-0 ${
                       index === 0 ? "md:max-w-md" : "md:max-w-xl"
-                    } ${index === 0 ? "lg:max-w-md" : "lg:max-w-lg"} `}
+                    } ${index === 0 ? "lg:max-w-md" : "lg:max-w-xl"} `}
                   >
                     {bio}
                   </p>
@@ -96,17 +105,21 @@ export default function Crew() {
                 })}
               </div>
             </div>
-            <div className='person-img-container mx-auto hidden md:block overflow-hidden'>
-              <motion.img
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 100 }}
-                transition={{ duration: 0.4, delay: 0.1, ease: "easeIn" }}
+            <motion.div
+              initial={{ x: -10, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 100 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: "easeIn" }}
+              className='person-img-container mx-auto hidden md:block overflow-hidden'
+            >
+              <Image
                 className='w-full h-full object-contain'
-                src={images.png}
+                src={`/${images.png}`}
                 alt={name}
+                width={900}
+                height={900}
               />
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </main>

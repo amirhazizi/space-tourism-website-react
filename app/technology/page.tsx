@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import data from "../data.json"
 import { motion, AnimatePresence } from "framer-motion"
-
+import Image from "next/image"
 const { technology: technologys } = data
 const initialTechnology = technologys[0]
 
@@ -32,10 +32,12 @@ export default function Technology() {
             <span className='text-gray-700 px-2'>03</span>Space Launch 101
           </h1>
           <div className='space-y-10 lg:space-y-0 lg:flex lg:justify-end lg:items-center lg:gap-x-10 xl:gap-x-20'>
-            <img
+            <Image
               className='w-full lg:hidden'
-              src={images.landscape}
+              src={`/${images.landscape}`}
               alt={name}
+              width={770}
+              height={320}
             />
             <div className='flex gap-x-5 justify-center z-50 lg:flex-col lg:gap-x-0 lg:gap-y-5'>
               {technologys?.map((_, technologyIndex) => {
@@ -66,10 +68,12 @@ export default function Technology() {
                 {description}
               </p>
             </div>
-            <img
+            <Image
               className='hidden w-1/3 lg:inline-block'
-              src={images.portrait}
+              src={`/${images.portrait}`}
               alt={name}
+              width={520}
+              height={540}
             />
           </div>
         </motion.div>

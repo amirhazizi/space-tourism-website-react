@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import data from "../data.json"
 import { motion, AnimatePresence } from "framer-motion"
-
+import Image from "next/image"
 const { destinations } = data
 const initialDestination = destinations.filter(
   (des) => des.name === destinations[0].name
@@ -42,15 +42,21 @@ export default function Destination() {
             <span className='text-gray-700 px-2'>01</span>pick your destination
           </h1>
           <div className='space-y-8 lg:flex lg:items-center'>
-            <motion.img
+            <motion.div
+              className='lg:w-3/5'
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 100 }}
               transition={{ duration: 0.3, delay: 0.2, ease: "easeIn" }}
-              className='planet-img mx-auto'
-              src={images.png}
-              alt={name}
-            />
+            >
+              <Image
+                className='planet-img mx-auto'
+                src={`/${images.png}`}
+                alt={name}
+                width={500}
+                height={500}
+              />
+            </motion.div>
             <div className='space-y-8 text-center lg:text-left lg:w-2/5'>
               <div className='flex uppercase gap-x-4 justify-center md:gap-x-6 lg:justify-start'>
                 {destinationNames?.map((des, index) => {
