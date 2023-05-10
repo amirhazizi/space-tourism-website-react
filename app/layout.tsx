@@ -1,9 +1,6 @@
-"use client"
 import "./globals.css"
 import { Bellefair, Barlow_Condensed } from "next/font/google"
-import { useState } from "react"
-import Navbar from "./Navbar"
-import Sidebar from "./Sidebar"
+import NavSidebarContainer from "./NavSidebarContainer"
 
 import { AnimatePresence } from "framer-motion"
 
@@ -28,15 +25,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [isSidebar, setIsSidebar] = useState(false)
   return (
     <html lang='en'>
       <body className={`${bellefair.variable} ${barlowCondensed.variable}`}>
-        <AnimatePresence>
-          <Navbar sidebar={isSidebar} setSidebar={setIsSidebar} />
-          <Sidebar sidebar={isSidebar} setSidebar={setIsSidebar} />
-          {children}
-        </AnimatePresence>
+        <NavSidebarContainer />
+        {children}
       </body>
     </html>
   )
