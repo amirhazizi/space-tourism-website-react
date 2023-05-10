@@ -5,7 +5,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import navContent from "./navbarData.json"
-import { motion } from "framer-motion"
 
 type NavbarProps = {
   sidebar: boolean
@@ -16,13 +15,7 @@ export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
   const pathname = usePathname()
 
   return (
-    <motion.nav
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: 10 }}
-      transition={{ duration: 0.5, delay: 0.3, ease: "easeInOut" }}
-      className='absolute top-0 left-0 w-full z-10  font-barlowCondensed'
-    >
+    <nav className='absolute top-0 left-0 w-full z-10  font-barlowCondensed'>
       <div className='flex p-5 px-6 justify-between md:p-0 lg:relative lg:py-8'>
         <div className='w-1/2 md:p-8 md:py-6 lg:p-4 lg:pl-10'>
           <Link href='/'>
@@ -67,6 +60,6 @@ export default function Navbar({ setSidebar, sidebar }: NavbarProps) {
         </button>
         <div className='nav-line invisible lg:visible absolute h-px bg-clPrimary_3 opacity-30 top-1/2 left-0 translate-x-36'></div>
       </div>
-    </motion.nav>
+    </nav>
   )
 }
