@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 export default function Home() {
   return (
     <main className='home-main min-h-screen grid place-items-center'>

@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import data from "../data.json"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import Image from "next/image"
 
 const { crew: allCrew } = data
@@ -43,15 +43,26 @@ export default function Crew() {
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: 100 }}
                   transition={{ duration: 0.4, delay: 0.1, ease: "easeIn" }}
-                  className='person-img-container mx-auto md:hidden'
+                  className='person-img-container mx-auto md:hidden overflow-hidden relative'
                 >
-                  <Image
-                    className='w-full h-full object-contain'
-                    src={`/${images.png}`}
-                    alt={name}
-                    width={500}
-                    height={700}
-                  />
+                  {allCrew.map((person, personIndex) => {
+                    const { images, name } = person
+                    let position = "translate-x-full opacity-0"
+                    if (personIndex === index)
+                      position = "translate-x-0 opacity-100"
+                    if (personIndex <= index - 1)
+                      position = "-translate-x-full opacity-0"
+                    return (
+                      <Image
+                        key={personIndex}
+                        className={`person-img w-full h-full object-contain absolute ${position}`}
+                        src={`/${images.png}`}
+                        alt={name}
+                        width={900}
+                        height={900}
+                      />
+                    )
+                  })}
                 </motion.div>
               </div>
               <div className='flex gap-x-5 justify-center md:hidden'>
@@ -103,21 +114,25 @@ export default function Crew() {
               })}
             </div>
           </div>
-          <motion.div
-            initial={{ x: -10, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 100 }}
-            transition={{ duration: 0.4, delay: 0.1, ease: "easeIn" }}
-            className='person-img-container mx-auto hidden md:block overflow-hidden'
-          >
-            <Image
-              className='w-full h-full object-contain'
-              src={`/${images.png}`}
-              alt={name}
-              width={900}
-              height={900}
-            />
-          </motion.div>
+          <div className='person-img-container mx-auto hidden md:block overflow-hidden relative'>
+            {allCrew.map((person, personIndex) => {
+              const { images, name } = person
+              let position = "translate-x-full opacity-0"
+              if (personIndex === index) position = "translate-x-0 opacity-100"
+              if (personIndex <= index - 1)
+                position = "-translate-x-full opacity-0"
+              return (
+                <Image
+                  key={personIndex}
+                  className={`person-img w-full h-full object-contain absolute ${position}`}
+                  src={`/${images.png}`}
+                  alt={name}
+                  width={900}
+                  height={900}
+                />
+              )
+            })}
+          </div>
         </div>
       </motion.div>
     </main>

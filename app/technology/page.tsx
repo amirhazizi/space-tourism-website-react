@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import data from "../data.json"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import Image from "next/image"
 const { technology: technologys } = data
 const initialTechnology = technologys[0]
@@ -31,17 +31,29 @@ export default function Technology() {
         </h1>
         <div className='space-y-10 lg:space-y-0 lg:flex lg:justify-end lg:items-center lg:gap-x-10 xl:gap-x-20'>
           <motion.div
+            className='technology-container lg:hidden relative'
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2, ease: "easeIn" }}
           >
-            <Image
-              className='w-full lg:hidden'
-              src={`/${images.landscape}`}
-              alt={name}
-              width={770}
-              height={320}
-            />
+            {technologys.map((technology, technologyIndex) => {
+              const { images, name } = technology
+              let position = "translate-x-full opacity-0"
+              if (technologyIndex === index)
+                position = "translate-x-0 opacity-100"
+              if (technologyIndex <= index - 1)
+                position = "-translate-x-full opacity-0"
+              return (
+                <Image
+                  key={technologyIndex}
+                  className={`single-thechnology w-full h-full absolute ${position}`}
+                  src={`/${images.landscape}`}
+                  alt={name}
+                  width={770}
+                  height={350}
+                />
+              )
+            })}
           </motion.div>
           <div className='flex gap-x-5 justify-center z-50 lg:flex-col lg:gap-x-0 lg:gap-y-5'>
             {technologys?.map((_, technologyIndex) => {
@@ -73,17 +85,29 @@ export default function Technology() {
             </p>
           </div>
           <motion.div
-            className='hidden w-1/3 lg:block'
+            className='technology-container hidden lg:block relative'
             initial={{ x: 10, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2, ease: "easeIn" }}
           >
-            <Image
-              src={`/${images.portrait}`}
-              alt={name}
-              width={520}
-              height={540}
-            />
+            {technologys.map((technology, technologyIndex) => {
+              const { images, name } = technology
+              let position = "translate-y-10 opacity-0"
+              if (technologyIndex === index)
+                position = "translate-y-0 opacity-100"
+              if (technologyIndex <= index - 1)
+                position = "-translate-y-10 opacity-0"
+              return (
+                <Image
+                  key={technologyIndex}
+                  className={`single-thechnology w-full h-full absolute ${position}`}
+                  src={`/${images.portrait}`}
+                  alt={name}
+                  width={550}
+                  height={550}
+                />
+              )
+            })}
           </motion.div>
         </div>
       </motion.div>

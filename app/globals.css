@@ -97,8 +97,15 @@ aside {
   z-index: 2;
 }
 
-.planet-img {
-  width: 12rem;
+.planet-container {
+  width: 13rem;
+  height: 13rem;
+}
+
+.planet-img,
+.single-thechnology,
+.person-img {
+  transition: transform 250ms, opacity 150ms;
 }
 
 .destination-btn {
@@ -146,6 +153,7 @@ aside {
   height: 300px;
 }
 
+
 /* technology */
 .technology-main {
   background: url('../public/assets/technology/background-technology-mobile.jpg') center/cover no-repeat fixed;
@@ -170,6 +178,10 @@ aside {
   height: 3rem;
 }
 
+.technology-container {
+  width: 100%;
+  height: 12rem;
+}
 
 /* tablet */
 @media (min-width:768px) {
@@ -211,12 +223,18 @@ aside {
     height: 14rem;
   }
 
-  .planet-img {
+  .planet-container {
+    width: 75%;
     width: 18rem;
+    height: 18rem;
   }
 
   .destination-btn {
     font-size: 1.2rem;
+  }
+
+  .technology-container {
+    height: 20rem;
   }
 
   .person-img-container {
@@ -269,9 +287,17 @@ aside {
     height: 17rem;
   }
 
-  .planet-img {
-    width: 25rem;
+  .planet-container {
+    padding-top: 2rem;
+    width: 50%;
+    height: 30rem;
   }
+
+  .technology-container {
+    width: 30%;
+    height: 20rem;
+  }
+
 
   .technology-btn {
     width: 4rem;
@@ -291,5 +317,10 @@ aside {
     width: 5rem;
     height: 5rem;
 
+  }
+
+  .technology-container {
+    width: 32%;
+    height: 27rem;
   }
 }
