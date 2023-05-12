@@ -59,31 +59,22 @@ export default function Destination() {
             <span className='text-gray-700 px-2'>01</span>pick your destination
           </h1>
           <div className='space-y-8 lg:flex lg:items-center'>
-            <motion.div
-              className='planet-container relative overflow-hidden mx-auto lg:mr-28'
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 100 }}
-              transition={{ duration: 0.3, delay: 0.2, ease: "easeIn" }}
-            >
+            <div className='planet-container relative overflow-hidden mx-auto lg:mr-28'>
               {destinations.map((planet, planetIndex) => {
-                const { images, name } = planet
+                const { images } = planet
                 let position = "translate-y-full opacity-0"
-                let active = false
 
                 if (planetIndex === index) {
                   position = "translate-y-0 opacity-100"
-                  active = true
                 }
                 if (planetIndex <= index - 1) {
                   position = "-translate-y-full opacity-0"
-                  active = false
                 }
                 return (
                   <div
                     className={`planet-img lg:w-4/5 absolute w-full h-full left-1/2 -translate-x-1/2  ${position}`}
                   >
-                    <Canvas dpr={window.devicePixelRatio}>
+                    <Canvas>
                       <ambientLight intensity={0.1} />
                       <spotLight
                         position={[10, 5, 5]}
@@ -99,7 +90,7 @@ export default function Destination() {
                   </div>
                 )
               })}
-            </motion.div>
+            </div>
             <div className='space-y-8 text-center lg:text-left lg:w-2/5'>
               <div className='flex uppercase gap-x-4 justify-center md:gap-x-6 lg:justify-start'>
                 {destinationNames?.map((des, index) => {
