@@ -2,17 +2,29 @@
 import { useState, useEffect } from "react"
 import data from "../data.json"
 import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls, Stage, useTexture } from "@react-three/drei"
 const { destinations } = data
 const initialDestination = destinations.filter(
   (des) => des.name === destinations[0].name
 )
+type PlanetProps = {
+  loc: string
+}
+const Planet = ({ loc }: PlanetProps) => {
+  const texture = useTexture(loc)
+  return (
+    <mesh>
+      <sphereGeometry />
+      <meshStandardMaterial map={texture} />
+    </mesh>
+  )
+}
 export default function Destination() {
   const [destinationNames, setDestinationNames] = useState<string[]>()
   const [userdestination, setUserDestination] = useState(destinations[0].name)
   const [destination, setDestination] = useState(initialDestination)
   const [index, setIndex] = useState(0)
-
   const getAllDestinationNames = () => {
     return data.destinations.map((des) => {
       return des.name
@@ -32,7 +44,7 @@ export default function Destination() {
 
     setDestination(newDestination)
   }, [userdestination])
-  const { name, travel, distance, images, description } = destination[0]
+  const { name, travel, distance, description } = destination[0]
 
   return (
     <AnimatePresence>
@@ -57,19 +69,36 @@ export default function Destination() {
               {destinations.map((planet, planetIndex) => {
                 const { images, name } = planet
                 let position = "translate-y-1/2 opacity-0"
-                if (planetIndex === index)
+                let active = false
+
+                if (planetIndex === index) {
                   position = "translate-y-0 opacity-100"
-                if (planetIndex <= index - 1)
+                  active = true
+                }
+                if (planetIndex <= index - 1) {
                   position = "-translate-y-1/2 opacity-0"
+                  active = false
+                }
                 return (
-                  <Image
-                    key={planetIndex}
-                    className={`planet-img w-full h-fit left-1/2 -translate-x-1/2 absolute  lg:w-4/5  ${position}`}
-                    src={`/${images.png}`}
-                    alt={name}
-                    width={500}
-                    height={500}
-                  />
+                  <div
+                    className={`planet-img lg:w-4/5 absolute w-full h-full left-1/2 -translate-x-1/2  ${position} ${
+                      active ? "visible" : "invisible"
+                    }`}
+                  >
+                    <Canvas>
+                      <ambientLight intensity={0.1} />
+                      <spotLight
+                        position={[10, 5, 5]}
+                        angle={0.5}
+                        intensity={2}
+                      />
+
+                      <OrbitControls autoRotate />
+                      <Stage shadows>
+                        <Planet loc={images.jpg} />
+                      </Stage>
+                    </Canvas>
+                  </div>
                 )
               })}
             </motion.div>
