@@ -46,7 +46,7 @@ Users should be able to:
 - React
 - Next JS
 - Framer Motion
-- Three JS
+- R3F
 - Tailwind CSS Framework
 - CSS Flexbox and Grid
 

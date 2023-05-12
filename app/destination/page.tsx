@@ -68,7 +68,7 @@ export default function Destination() {
             >
               {destinations.map((planet, planetIndex) => {
                 const { images, name } = planet
-                let position = "translate-y-1/2 opacity-0"
+                let position = "translate-y-full opacity-0"
                 let active = false
 
                 if (planetIndex === index) {
@@ -76,16 +76,14 @@ export default function Destination() {
                   active = true
                 }
                 if (planetIndex <= index - 1) {
-                  position = "-translate-y-1/2 opacity-0"
+                  position = "-translate-y-full opacity-0"
                   active = false
                 }
                 return (
                   <div
-                    className={`planet-img lg:w-4/5 absolute w-full h-full left-1/2 -translate-x-1/2  ${position} ${
-                      active ? "visible" : "invisible"
-                    }`}
+                    className={`planet-img lg:w-4/5 absolute w-full h-full left-1/2 -translate-x-1/2  ${position}`}
                   >
-                    <Canvas>
+                    <Canvas dpr={window.devicePixelRatio}>
                       <ambientLight intensity={0.1} />
                       <spotLight
                         position={[10, 5, 5]}
@@ -93,7 +91,7 @@ export default function Destination() {
                         intensity={2}
                       />
 
-                      <OrbitControls autoRotate />
+                      <OrbitControls enableZoom={false} autoRotate />
                       <Stage shadows>
                         <Planet loc={images.jpg} />
                       </Stage>
