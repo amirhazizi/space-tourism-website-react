@@ -2,8 +2,9 @@
 import { useState, useEffect } from "react"
 import data from "../data.json"
 import { motion, AnimatePresence } from "framer-motion"
-import { Canvas } from "@react-three/fiber"
+import { Canvas, useThree } from "@react-three/fiber"
 import { OrbitControls, Stage, useTexture } from "@react-three/drei"
+
 const { destinations } = data
 const initialDestination = destinations.filter(
   (des) => des.name === destinations[0].name
@@ -12,6 +13,8 @@ type PlanetProps = {
   loc: string
 }
 const Planet = ({ loc }: PlanetProps) => {
+  const { gl } = useThree()
+  // gl.setSize(window.innerWidth / 4, window.innerHeight / 4)
   const texture = useTexture(loc)
   return (
     <mesh>
@@ -25,6 +28,7 @@ export default function Destination() {
   const [userdestination, setUserDestination] = useState(destinations[0].name)
   const [destination, setDestination] = useState(initialDestination)
   const [index, setIndex] = useState(0)
+
   const getAllDestinationNames = () => {
     return data.destinations.map((des) => {
       return des.name
@@ -73,6 +77,7 @@ export default function Destination() {
                 return (
                   <div
                     className={`planet-img lg:w-4/5 absolute w-full h-full left-1/2 -translate-x-1/2  ${position}`}
+                    key={planetIndex}
                   >
                     <Canvas>
                       <ambientLight intensity={0.1} />
