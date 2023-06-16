@@ -235,11 +235,12 @@ aside {
 
   .technology-container {
     height: 20rem;
+
   }
 
   .person-img-container {
     width: 450px;
-    height: 450px;
+
   }
 }
 
@@ -293,11 +294,18 @@ aside {
     height: 32rem;
   }
 
+  .planet-img {
+    width: 80%;
+    height: 90%;
+    object-fit: contain;
+  }
+
   .technology-container {
     width: 30%;
     height: 20rem;
-  }
+    max-width: 425px;
 
+  }
 
   .technology-btn {
     width: 4rem;
@@ -309,6 +317,7 @@ aside {
     padding-top: 2rem;
     width: 55%;
     height: calc(100vh - 169px);
+
   }
 }
 
@@ -320,7 +329,8 @@ aside {
   }
 
   .technology-container {
-    width: 32%;
+    width: 40%;
+
     height: 27rem;
   }
 }

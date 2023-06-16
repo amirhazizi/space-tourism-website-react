@@ -1,10 +1,12 @@
 "use client"
 import { useState, useEffect } from "react"
-import data from "../data.json"
 import { motion, AnimatePresence } from "framer-motion"
 import { Canvas, useThree } from "@react-three/fiber"
 import { OrbitControls, Stage, useTexture } from "@react-three/drei"
 
+import Image from "next/image"
+
+import data from "../data.json"
 const { destinations } = data
 const initialDestination = destinations.filter(
   (des) => des.name === destinations[0].name
@@ -65,7 +67,7 @@ export default function Destination() {
           <div className='space-y-8 lg:flex lg:items-center'>
             <div className='planet-container relative overflow-hidden mx-auto lg:mr-28'>
               {destinations.map((planet, planetIndex) => {
-                const { images } = planet
+                const { images, name } = planet
                 let position = "translate-y-full opacity-0"
 
                 if (planetIndex === index) {
@@ -75,24 +77,32 @@ export default function Destination() {
                   position = "-translate-y-full opacity-0"
                 }
                 return (
-                  <div
-                    className={`planet-img lg:w-4/5 absolute w-full h-full left-1/2 -translate-x-1/2  ${position}`}
+                  <Image
+                    src={`/${images.jpg}`}
                     key={planetIndex}
-                  >
-                    <Canvas>
-                      <ambientLight intensity={0.1} />
-                      <spotLight
-                        position={[10, 5, 5]}
-                        angle={0.5}
-                        intensity={2}
-                      />
+                    className={`planet-img absolute w-full h-full left-1/2  -translate-x-1/2  ${position}`}
+                    alt={name || "moon"}
+                    width={475}
+                    height={475}
+                  />
+                  // <div
+                  //   className={`planet-img lg:w-4/5 absolute w-full h-full left-1/2 -translate-x-1/2  ${position}`}
+                  //   key={planetIndex}
+                  // >
+                  //   <Canvas>
+                  //     <ambientLight intensity={0.1} />
+                  //     <spotLight
+                  //       position={[10, 5, 5]}
+                  //       angle={0.5}
+                  //       intensity={2}
+                  //     />
 
-                      <OrbitControls enableZoom={false} autoRotate />
-                      <Stage shadows>
-                        <Planet loc={images.jpg} />
-                      </Stage>
-                    </Canvas>
-                  </div>
+                  //     <OrbitControls enableZoom={false} autoRotate />
+                  //     <Stage shadows>
+                  //       <Planet loc={images.jpg} />
+                  //     </Stage>
+                  //   </Canvas>
+                  // </div>
                 )
               })}
             </div>

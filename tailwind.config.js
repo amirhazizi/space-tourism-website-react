@@ -8,6 +8,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Screen sizes
+      screens: {
+        sm: "480px",
+        md: "768px",
+        lg: "1024px",
+        lx: "1440px",
+      },
       colors: {
         clPrimary_1: "hsl(230,35%,7%)",
         clPrimary_2: "hsl(231,77%,90%)",

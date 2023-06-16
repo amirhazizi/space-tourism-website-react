@@ -25,12 +25,12 @@ export default function Technology() {
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className='space-y-10 pt-20 pb-10 md:pt-32 text-clPrimary_3 text-center font-barlowCondensed lg:text-left overflow-hidden'
+          className='space-y-10 pt-20 pb-10 md:pt-32 text-clPrimary_3 text-center font-barlowCondensed lg:text-left overflow-hidden lg:space-y-20'
         >
-          <h1 className='text-xl tracking-widest lg:text-center lg:max-w-xl lg:pl-10 uppercase'>
+          <h1 className='text-xl tracking-widest lg:text-center  lg:pl-10 uppercase'>
             <span className='text-gray-700 px-2'>03</span>Space Launch 101
           </h1>
-          <div className='space-y-10 lg:space-y-0 lg:flex lg:justify-end lg:items-center lg:gap-x-10 xl:gap-x-20'>
+          <div className='space-y-10 lg:space-y-0 lg:flex lg:justify-end lg:items-center lg:gap-x-10 xl:gap-x-20 xl:justify-center'>
             <motion.div
               className='technology-container lg:hidden relative'
               initial={{ y: 10, opacity: 0 }}
@@ -47,7 +47,7 @@ export default function Technology() {
                 return (
                   <Image
                     key={technologyIndex}
-                    className={`single-thechnology w-full h-full absolute ${position}`}
+                    className={`single-thechnology w-full h-full absolute object-cover ${position}`}
                     src={`/${images.landscape}`}
                     alt={name}
                     width={770}
